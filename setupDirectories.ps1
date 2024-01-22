@@ -3,6 +3,8 @@ $directories = @(
     ".\src\controllers",
     ".\src\models",
     ".\src\routes",
+    ".\src\middlewares",
+    ".\src\services",
     ".\views"
 )
 

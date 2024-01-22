@@ -1,0 +1,43 @@
+
+- Abre Postman.
+- Configura la solicitud para ser de tipo `POST`.
+- Ingresa la URL de tu servidor local seguida por la ruta de registro. Si estás utilizando el puerto 3000, la URL será `http://localhost:3000/api/users/register`.
+- En la sección "Body" de la solicitud, selecciona "raw" y luego "JSON" como el formato.
+- Ingresa los datos de un nuevo usuario en formato JSON. Por ejemplo:
+  ```json
+  {
+    "username": "nuevoUsuario",
+    "password": "contraseñaSegura"
+  }
+  ```
+- Haz clic en "Send" para enviar la solicitud.
+
+### 2. Probar la Ruta de Inicio de Sesión (`/api/users/login`)
+
+- Cambia el tipo de solicitud a `POST`.
+- Cambia la URL a `http://localhost:3000/api/users/login`.
+- En el cuerpo de la solicitud, asegúrate de usar las credenciales del usuario que registraste anteriormente. Por ejemplo:
+  ```json
+  {
+    "username": "nuevoUsuario",
+    "password": "contraseñaSegura"
+  }
+  ```
+- Envía la solicitud. Si el inicio de sesión es exitoso, deberías recibir un token JWT como respuesta.
+
+### 3. Probar la Ruta Protegida (`/api/users/protected`)
+
+- Cambia el tipo de solicitud a `GET`.
+- Cambia la URL a `http://localhost:3000/api/users/protected`.
+- Ve a la sección "Headers" y agrega un nuevo header. La clave debe ser `Authorization` y el valor debe ser `Bearer <tu_token>` donde `<tu_token>` es el token JWT que recibiste al iniciar sesión. Asegúrate de incluir la palabra "Bearer" seguida de un espacio antes del token.
+- Envía la solicitud.
+
+Si todo está configurado correctamente, al probar la ruta protegida deberías recibir una respuesta indicando que la ruta es accesible solo para usuarios autenticados, dependiendo de cómo hayas implementado la lógica en tu servidor.
+
+### Problemas Comunes
+
+- **Servidor no responde**: Asegúrate de que tu servidor esté ejecutándose correctamente y escuchando en el puerto correcto.
+- **Respuestas de error**: Revisa los mensajes de error devueltos por tu API para diagnosticar problemas. Estos mensajes pueden darte pistas sobre lo que necesita ser corregido (por ejemplo, errores de validación, token no válido, etc.).
+- **Error de conexión**: Si Postman no puede conectarse, verifica que la URL esté escrita correctamente y que no haya problemas de red o firewall bloqueando la conexión.
+
+Recuerda detener y reiniciar tu servidor Node.js si realizaste cambios en el código después de haber iniciado el servidor, para asegurarte de que los cambios tengan efecto.

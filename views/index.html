@@ -1,11 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pingui</title>
+    <title>Registro y Login de Usuario</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Welcome to Pingui</h1>
+    <h1>Bienvenido a Pingui</h1>
+    
+    <!-- Formulario de Registro -->
+    <h2>Registro de Usuario</h2>
+    <form id="registerForm"><p id="registerResult"></p>
+        <input type="text" id="registerUsername" placeholder="Nombre de usuario" required />
+        <input type="password" id="registerPassword" placeholder="Contraseña" required />
+        <button type="button" onclick="registerUser()">Registrar</button>
+    </form>
+
+    <!-- Formulario de Inicio de Sesión -->
+    <h2>Iniciar Sesión</h2>
+    <form id="loginForm"><p id="loginResult"></p>
+        <input type="text" id="loginUsername" placeholder="Nombre de usuario" required />
+        <input type="password" id="loginPassword" placeholder="Contraseña" required />
+        <button type="button" onclick="loginUser()">Iniciar Sesión</button>
+    </form>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
